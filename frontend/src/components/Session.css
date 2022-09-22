@@ -1,0 +1,38 @@
+.form{
+    max-width: 30vw;
+    margin: 0rem auto;
+    max-height: 120vw;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: white;
+    float: none;
+}
+
+.login {
+    max-width: 100%;
+    height: 100vh;
+    float: none;
+    background: url(../../public/fondo.jpg) no-repeat center bottom;
+    background-size: cover;
+}
+
+.sesion {
+    font-size: 1vw;
+}
+
+.register {
+    font-size: 1vw;
+    padding-top: 0.2vw;
+}
+
+.logo {
+    height: 5vw;
+    margin-left: 11.5vw;
+}
+
+.title h3{
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(40, 79, 206);   
+}
