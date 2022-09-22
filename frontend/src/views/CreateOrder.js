@@ -1,7 +1,7 @@
 import CreateForm from '../components/CreateForm';
 import { Footer } from '../components/Footer';
 import Header from '../components/Header';
-import './CreateOrden.css';
+import './CreateOrder.css';
 
 
 function ListPackages() {

@@ -2,8 +2,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Register.css';
 import Image from 'react-bootstrap/Image';
+import { useHistory } from "react-router-dom";
 
 function Register() {
+  const history = useHistory();
+  
+  const handleRoute = () =>{ 
+    history.push("/");
+  }
   return (
         <div className='reg'>
         <Image className='logo' roundedCircle/>
@@ -30,11 +36,11 @@ function Register() {
                 <Form.Label>Correo electrónico</Form.Label>
                 <Form.Control type="email" placeholder="example@gmail.com" />
             </Form.Group>
-            <Button className='sesion' variant="primary" type="submit">
+            <Button className='sesion' variant="primary" type="submit" onClick={handleRoute}>
                 Registrarse
             </Button>
             <div className='back'>
-            <Button className='sesion' variant="secondary" type="submit">
+            <Button className='sesion' variant="secondary" type="submit" onClick={handleRoute}>
                 Volver
             </Button>
           </div>

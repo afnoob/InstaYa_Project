@@ -1,21 +1,28 @@
 import './App.css';
 import React from 'react';
-import { Footer } from './components/Footer';
-import Session from './components/Session';
-import Register from './components/Register';
-import Header from './components/Header'
-import Orderlist from './components/Orderlist';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Createbutton from './components/Createbutton';
-import CreateForm from './components/CreateForm';
-import EditForm from './components/EditForm';
 import UserSession from './views/UserSession';
+import UserRegister from './views/UserRegister';
+import ListPackages from './views/ListPackages';
+import UpdateOrder from './views/UpdateOrder';
+import CreateOrder from './views/CreateOrder';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
 
 function App() {
   return (
-      <div className='App'>
-        <UserSession />
-      </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={UserSession} />
+        <Route exact path="/registro" component={UserRegister} />
+        <Route exact path="/lista-paquetes" component={ListPackages} />
+        <Route exact path="/actualizar-orden" component={UpdateOrder} />
+        <Route exact path="/crear-orden" component={CreateOrder} />
+      </Switch>
+    </Router>
   );
 }
 

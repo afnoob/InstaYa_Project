@@ -14,14 +14,12 @@ export const Footer = () => {
         style={{ width: '80%' }}
       >
         <CDBBox display="flex" alignItems="center">
-          <a href="/" className="d-flex align-items-center p-0 text-dark">
             <img
               alt="logo"
               src="https://www.webretail.com.ar/v2/wp-content/uploads/2020/04/Env%C3%ADos-a-domicilio.png"
               width="30px"
             />
             <span className="ml-4 h5 mb-0 font-weight-bold">InstaYa</span>
-          </a>
         </CDBBox>
         <CDBBox>
           <small className="ml-2">&copy; InstaYa, 2022. Todos los derechos reservados.</small>

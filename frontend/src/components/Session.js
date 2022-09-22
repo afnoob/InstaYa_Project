@@ -2,8 +2,19 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Session.css';
 import Image from 'react-bootstrap/Image';
+import { useHistory } from "react-router-dom";
 
 function Session() {
+  const history = useHistory();
+  
+  const handleRoute = () =>{ 
+    history.push("/registro");
+  };
+  
+  const handleRoute2 = () =>{ 
+    history.push("/lista-paquetes");
+  };
+  
   return (
         <div className='login'>
         <Image className='logo' roundedCircle/>
@@ -21,7 +32,7 @@ function Session() {
             <Form.Label>Contraseña</Form.Label>
             <Form.Control type="password" placeholder="Contraseña" />
           </Form.Group>
-          <Button className='sesion' variant="primary" type="submit">
+          <Button className='sesion' variant="primary" type="submit" onClick={handleRoute2}>
             Iniciar sesión
           </Button>
           <div>
@@ -30,7 +41,7 @@ function Session() {
             </Form.Text>
           </div>
           <div>
-            <Button className='register' variant="secondary" type="submit">
+            <Button className='register' variant="secondary" type="submit" onClick={handleRoute}>
               Regístrate
             </Button>
           </div> 
