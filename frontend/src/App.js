@@ -1,5 +1,4 @@
 import './App.css';
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserSession from './views/UserSession';
 import UserRegister from './views/UserRegister';
