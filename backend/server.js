@@ -4,6 +4,7 @@ const port = 3000;
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const routesUrls = require('./routes/routes');
+const authRoutes = require('./routes/auth')
 const cors = require('cors');
 app.use(express.urlencoded({extended: false}));
 
@@ -14,4 +15,5 @@ mongoose.connect(process.env.DATABASE_ACCESS, () =>console.log("Database connect
 app.use(express.json());
 app.use(cors());
 app.use('/app', routesUrls);
+app.use('/app', authRoutes);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
