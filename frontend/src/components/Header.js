@@ -14,6 +14,11 @@ function Header() {
     history.push("/");
   };
 
+  const handleLogout = () =>{
+    localStorage.removeItem("token");
+    handleRoute();
+  }
+
   return (
     <div className='header'>
       <Navbar bg="light" expand="lg"  className='header'>
@@ -26,10 +31,9 @@ function Header() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              
             </Nav>
-            <Form className="d-flex">
-              <Button className='sign-out' onClick={handleRoute}>Cerrar Sesión</Button>
+            <Form className="d-flex" onSubmit={handleLogout}>
+              <Button className='sign-out' type='submit'>Cerrar Sesión</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

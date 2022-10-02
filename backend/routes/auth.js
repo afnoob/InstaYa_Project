@@ -21,8 +21,7 @@ router.post('/signin', async (request, response) =>{
             return response.status(401).send({ message:"Usuario o contraseña inválidos" });
 
         const token = user.generateAuthToken();
-        response.status(200).send({data:token, message:"Inicio de sesión exitoso"});
-
+        response.status(200).send({accesToken:token});
     } catch(error){
         response.status(500).send({message:"Error interno"});
     }

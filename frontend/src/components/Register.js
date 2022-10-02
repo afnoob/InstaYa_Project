@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import './Register.css';
 import Image from 'react-bootstrap/Image';
 import { useHistory } from "react-router-dom";
-import md5 from 'md5';
 
 function Register() {
   const [name, setEnteredName] = useState('');
@@ -12,7 +11,7 @@ function Register() {
   const [user, setEnteredUser] = useState('');
   const [password, setEnteredPassword] = useState('');
   const [email, setEnteredEmail] = useState('');
-    const history = useHistory();
+  const history = useHistory();
   
   const handleRoute = () =>{ 
     history.push("/");
@@ -34,7 +33,9 @@ function Register() {
           }),
         });
         let resJson = await res.json();
-        if (res.status === 200) {
+        console.log(resJson)
+        console.log(res.status)
+        if (res.status === 201) {
           alert("Usuario creado exitosamente");
           handleRoute(); 
         } else {
@@ -46,9 +47,7 @@ function Register() {
     } else {
       alert("Ocurrió un error inesperado")
     }
-
   };
-
 
   return (
     <div className='reg'>
@@ -80,7 +79,7 @@ function Register() {
             Registrarse
         </Button>
         <div className='back'>
-            <Button className='sesion' variant="secondary" type="submit" onClick={handleRoute}>
+            <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
                 Volver
             </Button>
           </div>
