@@ -26,7 +26,7 @@ router.post('/signup', async (request, response) =>{
         await new User({...request.body, Password: hashPassword}).save();
         response.status(201).send({message:"Usuario creado"});
     } catch (error) {
-        response.status(500).send({message:"Internal error"})
+        response.status(500).send({message:"Error Interno"})
     }
 });
 
