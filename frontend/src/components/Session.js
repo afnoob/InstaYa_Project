@@ -35,6 +35,12 @@ function Session() {
         if (res.status === 200) {
           handleRoute2();
           localStorage.setItem("token", JSON.stringify(resJson));
+          let response = await fetch(`http://localhost:3000/app/user-data/${user}`, {
+            method: "GET"
+          });
+          let responsejson = await response.json();
+          console.log(resJson);
+          localStorage.setItem("id", JSON.stringify(responsejson));
         } else {
           alert("Usuario o contraseña incorrectos");
         }

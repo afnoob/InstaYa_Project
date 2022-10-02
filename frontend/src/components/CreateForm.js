@@ -3,76 +3,131 @@ import Form from 'react-bootstrap/Form';
 import './CreateForm.css';
 import Image from 'react-bootstrap/Image';
 import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
 
 function CreateForm() {
     const history = useHistory();
+    const [date, setEnteredDate] = useState('');
+    const [large1, setEnteredLarge1] = useState('');
+    const [large2, setEnteredLarge2] = useState('');
+    const [height, setEnteredHeight] = useState('');
+    const [weight, setEnteredWeight] = useState('');
+    const [initialaddress, setEnteredInitialAddress] = useState('');
+    const [initialcity, setEnteredInitialCity] = useState('');
+    const [destinatary, setEnteredDestinatary] = useState('');
+    const [destinataryid, setEnteredDestinataryId] = useState('');
+    const [finaladdress, setEnteredFinalAddress] = useState('');
+    const [finalcity, setEnteredFinalCity] = useState('');
   
     const handleRoute = () =>{ 
       history.push("/lista-paquetes");
     };
+    
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+        if (date !== "" && large1 !== "" && large2 !== "" && height !== "" && weight !== "" && initialaddress !== "" && initialcity !== "" && destinatary !== "" && destinataryid !== "" && finaladdress !== "" && finalcity !== "") {
+          try {
+            const author = localStorage.getItem("id");
+            const authstr = author.replace(/["']/g, "");
+            console.log(authstr)
+            let res = await fetch("http://localhost:3000/app/create-order", {
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                Author:authstr,
+                Date: date,
+                Large1: large1,
+                Large2: large2,
+                Height: height,
+                Weight: weight,
+                InitialAddress: initialaddress,
+                InitialCity: initialcity,
+                Destinatary: destinatary,
+                IdDestinatary: destinataryid,
+                FinalAddress: finaladdress,
+                FinalCity: finalcity,
+                State: "Guardado"
+              }),
+            });
+            let resJson = await res.json();
+            console.log(resJson)
+            console.log(res.status)
+            if (res.status === 201) {
+              alert("Orden creada exitosamente");
+              handleRoute(); 
+            } else {
+              alert("Ocurrió un error inesperado");
+            }
+          } catch (err) {
+            console.log(err);
+          }
+        } else {
+          alert("Ocurrió un error inesperado")
+        }
+      };
 
     return (
             <div className='createorder'>
             <Image className='logo' roundedCircle/>
-            <Form className='form3'>
+            <Form className='form3' onSubmit={handleSubmit}>
                 <div className='createtitle'><h3>Agregar Orden</h3></div>
                 <div className='datetime'>
                 <Form.Group className="mb-3">
                     <Form.Label>Fecha</Form.Label>
-                    <Form.Control type="date" placeholder="Nombres" />
+                    <Form.Control type="date" id='date' name='date' value={date} onChange={(e) => setEnteredDate(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Hora</Form.Label>
-                    <Form.Control type="time" placeholder="Apellidos" />
+                    <Form.Control type="time" id='hour' name='hour'/>
                 </Form.Group>
                 </div>
                 <div className='columns'>
                 <Form.Group className="mb-3">
                     <Form.Label>Largo</Form.Label>
-                    <Form.Control type="number" placeholder="" />
+                    <Form.Control type="number" placeholder="" id='large1' name='large1' value={large1} onChange={(e) => setEnteredLarge1(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Largo</Form.Label>
-                    <Form.Control type="number" placeholder="" />
+                    <Form.Control type="number" placeholder="" id='large2' name='large2' value={large2} onChange={(e) => setEnteredLarge2(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Alto</Form.Label>
-                    <Form.Control type="number" placeholder="" />
+                    <Form.Control type="number" placeholder="" id='height' name='height' value={height} onChange={(e) => setEnteredHeight(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Peso</Form.Label>
-                    <Form.Control type="number" placeholder="" />
+                    <Form.Control type="number" placeholder="" id='weight' name='weight' value={weight} onChange={(e) => setEnteredWeight(e.target.value)}/>
                 </Form.Group>
                 </div>
                 <Form.Group className="mb-3">
                     <Form.Label>Dirección recogida</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='initialaddress' name='initialaddress' value={initialaddress} onChange={(e) => setEnteredInitialAddress(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Ciudad recogida</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='initialcity' name='initialcity' value={initialcity} onChange={(e) => setEnteredInitialCity(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre destinatario</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='destinatary' name='destinatary' value={destinatary} onChange={(e) => setEnteredDestinatary(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Cédula/Nit destinatario</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='destinataryid' name='destinataryid' value={destinataryid} onChange={(e) => setEnteredDestinataryId(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Dirección entrega</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='finaladdress' name='finaladdress' value={finaladdress} onChange={(e) => setEnteredFinalAddress(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Ciudad entrega</Form.Label>
-                    <Form.Control type="text" placeholder="" />
+                    <Form.Control type="text" placeholder="" id='finalcity' name='finalcity' value={finalcity} onChange={(e) => setEnteredFinalCity(e.target.value)}/>
                 </Form.Group>
-                <Button className='sesion' variant="primary" type="submit" onClick={handleRoute}>
+                <Button className='sesion' variant="primary" type="submit">
                     Crear Orden
                 </Button>
                 <div className='back'>
-                <Button className='sesion' variant="secondary" type="submit" onClick={handleRoute}>
+                <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
                     Volver
                 </Button>
             </div>
