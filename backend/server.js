@@ -16,4 +16,4 @@ app.use(express.json());
 app.use(cors());
 app.use('/app', routesUrls);
 app.use('/app', authRoutes);
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`InstaYa app listening on port ${port}!`));
