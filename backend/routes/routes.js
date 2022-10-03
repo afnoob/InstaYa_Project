@@ -13,9 +13,6 @@ router.post('/signup', async (request, response) =>{
         if (user)
             return response.status(409).send({ message: "Este correo ya existe" });
 
-        if (error)
-            return response.status(400).send({ message: error.details[0].message });
-        
         const username = await User.findOne({ User:request.body.User});
         if (username)
             return response.status(409).send({ message: "Este usuario ya existe" });

@@ -33,7 +33,7 @@ function Session() {
         let resJson = await res.json();
         console.log(resJson)
         if (res.status === 200) {
-          localStorage.setItem("token", JSON.stringify(resJson));
+          localStorage.setItem("token", JSON.stringify(resJson.accestoken));
           let response = await fetch(`http://localhost:3000/app/user-data/${user}`, {
             method: "GET"
           });
