@@ -1,44 +1,52 @@
 import Table from 'react-bootstrap/Table';
 import './Orderlist.css'
+import React from 'react'
+import { useCallback} from 'react';
+
 
 function Orderlist() {
+
+  const [ordenes, setOrdenes] = React.useState([])
+
+  React.useEffect(() =>{
+    fetchData();
+  }, []);
+
+  const fetchData = useCallback(async () => {
+    const author = localStorage.getItem("id");
+    const idstr = author.replace(/["']/g, "");
+    const data = await fetch(`http://localhost:3000/app/order-data/${idstr}`)
+    const orders = await data.json()
+    
+    setOrdenes(orders)
+    console.log(orders)
+  });
+
   return (
     <div className='list'>
         <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th># Servicio</th>
-          <th>Fecha</th>
-          <th>Ciudad Entrega</th>
-          <th>Dirección Entrega</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href='/actualizar-orden'>1</a></td>
-          <td>20/09/2022</td>
-          <td>Barranquilla</td>
-          <td>Calle 18 # 45-6</td>
-          <td>Guardado</td>
-        </tr>
-        <tr>
-          <td><a href='/actualizar-orden'>2</a></td>
-          <td>21/09/2022</td>
-          <td>Bogotá</td>
-          <td>Calle 132 # 7-56</td>
-          <td>Cancelado</td>
-        </tr>
-        <tr>
-          <td><a href='/actualizar-orden'>3</a></td>
-          <td>22/09/2022</td>
-          <td>Santa Marta</td>
-          <td>Carrera 6 # 19-22</td>
-          <td>Cumplido</td>
-        </tr>
-      </tbody>
-    </Table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Ciudad Entrega</th>
+              <th>Dirección Entrega</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+          {
+              ordenes.map(item => (
+            <tr>
+              <td>{item.Date}</td>
+              <td>{item.FinalCity}</td>
+              <td>{item.FinalAddress}</td>
+              <td>{item.State}</td>
+            </tr>
+              ))}
+          </tbody>
+        </Table>
     </div>
+
     
   );
 }
