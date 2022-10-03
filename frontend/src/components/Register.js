@@ -70,6 +70,9 @@ function Register() {
         <Form.Group className="mb-3">
             <Form.Label>Contraseña</Form.Label>
             <Form.Control type="password" placeholder="Contraseña" id='password' name='password' value={password} onChange={(e) => setEnteredPassword(e.target.value)}/>
+            <Form.Text className="text-muted">
+              Ingresa al menos 8 caracteres con mayúsculas, minúsculas, números y símbolos.
+            </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
             <Form.Label>Correo electrónico</Form.Label>

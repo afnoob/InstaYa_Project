@@ -22,4 +22,4 @@ app.use('/app', authRoutes);
 app.use('/app', getdata);
 app.use('/app', orderRoute);
 app.use('/app', dataorderRoute);
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`InstaYa app listening on port ${port}!`));
