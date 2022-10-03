@@ -7,6 +7,7 @@ const routesUrls = require('./routes/routes');
 const authRoutes = require('./routes/auth');
 const getdata = require('./routes/userdata');
 const orderRoute = require('./routes/order');
+const dataorderRoute = require('./routes/orderdata');
 const cors = require('cors');
 app.use(express.urlencoded({extended: false}));
 
@@ -20,4 +21,5 @@ app.use('/app', routesUrls);
 app.use('/app', authRoutes);
 app.use('/app', getdata);
 app.use('/app', orderRoute);
+app.use('/app', dataorderRoute);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
