@@ -26,7 +26,7 @@ function CreateForm() {
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
-    }
+    };
     
     let handleSubmit = async (e) => {
         e.preventDefault();
@@ -75,7 +75,7 @@ function CreateForm() {
             console.log(err);
           }
         } else {
-          alert("Ocurrió un error inesperado")
+          alert("Revise que todos los campos estén completos")
         }
       };
 
