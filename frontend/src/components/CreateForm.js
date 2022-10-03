@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 function CreateForm() {
     const history = useHistory();
     const [date, setEnteredDate] = useState('');
+    const [hour, setEnteredHour] = useState('');
     const [large1, setEnteredLarge1] = useState('');
     const [large2, setEnteredLarge2] = useState('');
     const [height, setEnteredHeight] = useState('');
@@ -35,7 +36,7 @@ function CreateForm() {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 Author:authstr,
-                Date: date,
+                Date: `${date}T${hour}`,
                 Large1: large1,
                 Large2: large2,
                 Height: height,
@@ -78,7 +79,7 @@ function CreateForm() {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Hora</Form.Label>
-                    <Form.Control type="time" id='hour' name='hour'/>
+                    <Form.Control type="time" id='hour' name='hour' value={hour} onChange={(e) => setEnteredHour(e.target.value)}/>
                 </Form.Group>
                 </div>
                 <div className='columns'>
