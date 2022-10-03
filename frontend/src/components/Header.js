@@ -24,8 +24,8 @@ function Header() {
     <div className='header'>
       <Navbar bg="light" expand="lg"  className='header'>
         <Container fluid className='header'>
-          <Navbar.Brand href="#">InstaYa</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Brand>InstaYa</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarscroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"

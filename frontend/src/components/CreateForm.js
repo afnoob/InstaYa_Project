@@ -23,11 +23,22 @@ function CreateForm() {
     const handleRoute = () =>{ 
       history.push("/lista-paquetes");
     };
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
     
     let handleSubmit = async (e) => {
         e.preventDefault();
         if (date !== "" && large1 !== "" && large2 !== "" && height !== "" && weight !== "" && initialaddress !== "" && initialcity !== "" && destinatary !== "" && destinataryid !== "" && finaladdress !== "" && finalcity !== "") {
           try {
+            const random1 = getRandomInt(10);
+            const random2 = getRandomInt(10);
+            const random3 = getRandomInt(10);
+            const random4 = getRandomInt(10);
+            const random5 = getRandomInt(10);
+            console.log(random1, random2, random3, random4, random5)
+            const nseguimiento = `${random1}${random2}${random3}${random4}${random5}`
             const author = localStorage.getItem("id");
             const authstr = author.replace(/["']/g, "");
             console.log(authstr)
@@ -36,6 +47,7 @@ function CreateForm() {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 Author:authstr,
+                Tracing: nseguimiento,
                 Date: `${date}T${hour}`,
                 Large1: large1,
                 Large2: large2,

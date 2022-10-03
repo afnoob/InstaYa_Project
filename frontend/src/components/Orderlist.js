@@ -27,6 +27,7 @@ function Orderlist() {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th>Número de seguimiento</th>
               <th>Fecha</th>
               <th>Ciudad Entrega</th>
               <th>Dirección Entrega</th>
@@ -37,6 +38,7 @@ function Orderlist() {
           {
               ordenes.map(item => (
             <tr>
+              <td><a href='/actualizar-orden'>{item.Tracing}</a></td>
               <td>{item.Date}</td>
               <td>{item.FinalCity}</td>
               <td>{item.FinalAddress}</td>

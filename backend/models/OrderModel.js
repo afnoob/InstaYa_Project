@@ -6,6 +6,10 @@ const orderTemplate = new mongoose.Schema({
         type:mongoose.Types.ObjectId,
         required:true
     },
+    Tracing:{
+        type:String,
+        required:true
+    },
     Date:{
         type:Date,
         required:true
