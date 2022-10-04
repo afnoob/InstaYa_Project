@@ -63,13 +63,11 @@ function CreateForm() {
               }),
             });
             let resJson = await res.json();
-            console.log(resJson)
-            console.log(res.status)
             if (res.status === 201) {
-              alert("Orden creada exitosamente");
+              alert(JSON.stringify(resJson).slice(12, -2));
               handleRoute(); 
             } else {
-              alert("Ocurrió un error inesperado");
+              alert(JSON.stringify(resJson).slice(12, -2));
             }
           } catch (err) {
             console.log(err);

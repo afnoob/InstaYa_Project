@@ -36,10 +36,10 @@ function Register() {
         console.log(resJson)
         console.log(res.status)
         if (res.status === 201) {
-          alert("Usuario creado exitosamente");
+          alert(JSON.stringify(resJson).slice(12, -2));
           handleRoute(); 
         } else {
-          alert("Ingrese un email válido y una contraseña compleja");
+          alert(JSON.stringify(resJson).slice(12, -2));
         }
       } catch (err) {
         console.log(err);

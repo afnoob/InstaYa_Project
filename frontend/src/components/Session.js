@@ -42,13 +42,13 @@ function Session() {
           localStorage.setItem("id", JSON.stringify(responsejson));
           handleRoute2();
         } else {
-          alert("Usuario o contraseña incorrectos");
+          alert(JSON.stringify(resJson).slice(12, -2));
         }
       } catch (err) {
         console.log(err);
       }
     } else {
-      alert("Ocurrió un error inesperado")
+      alert("Asegúrese de llenar los campos")
     }
   };
 
