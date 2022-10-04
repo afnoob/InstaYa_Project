@@ -82,9 +82,30 @@ function EditForm() {
             alert("Orden actualizada exitosamente");
             handleRoute();
         } else {
-            alert("Ocurrió un error inesperado");
+            alert("Error a la hora de actualizar la orden");
         }
     }
+
+    const cancelOrder = async (e) => {
+        e.preventDefault();
+            try {
+              let res = await fetch(`http://localhost:3000/app/cancel-order/${item_tracing}`, {
+                method: "PUT",
+                headers: { 'Content-Type': 'application/json' },
+              });
+              let resJson = await res.json();
+              console.log(resJson)
+              if (res.status === 200) {
+                alert("Orden cancelada con éxito")
+                handleRoute();
+              } else {
+                alert("Ocurrió un error al cancelar el pedido");
+              }
+            } catch (err) {
+              console.log(err);
+            }
+    }
+
     return (
         
         <div className='createorder'>
@@ -164,25 +185,25 @@ function EditForm() {
                         <Form.Control type="text" name="FinalCity"
                                       placeholder={order.FinalCity} />
                     </Form.Group>
-    
-                </Form>
-                
+                                    
                 
                 <Button className='sesion' variant="primary" type="submit" form="editForm">
                     Editar Orden
                 </Button>
                 
                 <div className='back'>
-                    <Button className='sesion' variant="danger" type="submit" onClick={handleRoute}>
+                    <Button className='sesion' variant="danger" type="button" onClick={cancelOrder}>
                         Cancelar Orden
                     </Button>
                 </div>
     
                 <div className='back'>
-                    <Button className='sesion' variant="secondary" type="submit" onClick={handleRoute}>
+                    <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
                         Volver
                     </Button>
                 </div>
+                </Form>
+
             </div>
             
         </div>

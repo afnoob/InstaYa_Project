@@ -31,7 +31,17 @@ router.post('/actualizar-orden/:item_tracing', async (request, response) =>{
         console.log(error.message)
         response.status(500).send({message:"Error al actualizar la orden"})
     }
-})
+});
+
+router.put('/cancel-order/:item_tracing', async (request, response) => {
+    let tracing = request.params.item_tracing
+    try {
+        await Order.findOneAndUpdate({"Tracing":tracing}, {"State":"Cancelado"})
+        response.status(200).send({message:"Orden cancelada con éxito"})
+    } catch (error) {
+        response.status(500).send({message:"Error a la hora de crear la orden"})
+    }
+  });
 
 const validateUpdateOrder = (data) => {
     

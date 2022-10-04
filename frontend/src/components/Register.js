@@ -39,13 +39,13 @@ function Register() {
           alert("Usuario creado exitosamente");
           handleRoute(); 
         } else {
-          alert("Ocurrió un error inesperado");
+          alert("Ingrese un email válido y una contraseña compleja");
         }
       } catch (err) {
         console.log(err);
       }
     } else {
-      alert("Ocurrió un error inesperado")
+      alert("Asegúrese que todos los campos estén completos")
     }
   };
 
