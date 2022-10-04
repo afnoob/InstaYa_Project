@@ -1,4 +1,4 @@
-import EditForm from '../components/EditForm';
+import EditForm from '../components/editForm/EditForm';
 import { Footer } from '../components/Footer';
 import Header from '../components/Header';
 import './UpdateOrder.css';

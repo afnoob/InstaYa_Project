@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={UserSession} />
         <Route exact path="/registro" component={UserRegister} />
         <Route exact path="/lista-paquetes" component={ListPackages} />
-        <Route exact path="/actualizar-orden" component={UpdateOrder} />
+        <Route exact path="/actualizar-orden/:item_tracing" component={UpdateOrder} />
         <Route exact path="/crear-orden" component={CreateOrder} />
       </Switch>
     </Router>

@@ -16,6 +16,7 @@ function Orderlist() {
     const author = localStorage.getItem("id");
     const idstr = author.replace(/["']/g, "");
     const data = await fetch(`http://localhost:3000/app/order-data/${idstr}`)
+    console.log(idstr)
     const orders = await data.json()
     
     setOrdenes(orders)
@@ -38,7 +39,7 @@ function Orderlist() {
           {
               ordenes.map(item => (
             <tr>
-              <td><a href='/actualizar-orden'>{item.Tracing}</a></td>
+              <td><a href={'/actualizar-orden/'+ item.Tracing}>{item.Tracing}</a></td>
               <td>{item.Date}</td>
               <td>{item.FinalCity}</td>
               <td>{item.FinalAddress}</td>
