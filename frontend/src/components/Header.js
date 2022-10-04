@@ -30,7 +30,6 @@ function Header() {
             <Nav
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
-              navbarScroll
             >
             </Nav>
             <Form className="d-flex" onSubmit={handleLogout}>

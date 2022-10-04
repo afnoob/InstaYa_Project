@@ -37,8 +37,9 @@ function Orderlist() {
           </thead>
           <tbody>
           {
-              ordenes.map(item => (
-            <tr>
+              ordenes.map((item, i) => (
+                
+            <tr key={i}>
               <td><a href={'/actualizar-orden/'+ item.Tracing}>{item.Tracing}</a></td>
               <td>{item.Date}</td>
               <td>{item.FinalCity}</td>
