@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import './Orderlist.css'
 import React from 'react'
-import { useCallback} from 'react';
+import { useCallback } from 'react';
 
 
 function Orderlist() {
@@ -17,10 +17,10 @@ function Orderlist() {
     const idstr = author.replace(/["']/g, "");
     const data = await fetch(`http://localhost:3000/app/order-data/${idstr}`)
     const orders = await data.json()
-    
     setOrdenes(orders)
     console.log(orders)
   });
+
 
   return (
     <div className='list'>
@@ -38,7 +38,7 @@ function Orderlist() {
           {
               ordenes.map(item => (
             <tr>
-              <td><a href='/actualizar-orden'>{item.Tracing}</a></td>
+              <td><a href={`editar-orden/${item._id}`}>{item.Tracing}</a></td>
               <td>{item.Date}</td>
               <td>{item.FinalCity}</td>
               <td>{item.FinalAddress}</td>
