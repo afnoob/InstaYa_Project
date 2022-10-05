@@ -10,7 +10,7 @@ Para inicializar
 
 3. npm run start
 
-# Iniciar después el Frontend
+# Iniciar después el Frontend (En otra terminal)
 
 4. cd frontend
 
