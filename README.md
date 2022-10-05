@@ -2,7 +2,7 @@
 
 Para inicializar
 
-# Iniciar Backend
+# Iniciar primero el Backend
 
 1. cd backend
 
@@ -10,7 +10,7 @@ Para inicializar
 
 3. npm run start
 
-# Iniciar Frontend
+# Iniciar después el Frontend
 
 4. cd frontend
 
