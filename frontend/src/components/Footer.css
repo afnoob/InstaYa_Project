@@ -6,6 +6,7 @@
     width:100%;
     margin-top: 8vw;
     padding-top: 10px;
+    position: fixed;
 }
 
 .shadow {
