@@ -28,7 +28,7 @@ function EditForm() {
     
     const fetchData = useCallback(async () => {
         
-        const data = await fetch(`http://localhost:3000/app/actualizar-orden/${item_tracing}`)
+        const data = await fetch(`https://instaya.herokuapp.com/app/actualizar-orden/${item_tracing}`)
         const order = await data.json()
     
         let isoDateStr = order.Date;
@@ -68,7 +68,7 @@ function EditForm() {
         
         console.log(JSON.stringify(tasks))
         
-        let res = await fetch(`http://localhost:3000/app/actualizar-orden/${item_tracing}`, {
+        let res = await fetch(`https://instaya.herokuapp.com/app/actualizar-orden/${item_tracing}`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             
@@ -89,7 +89,7 @@ function EditForm() {
     const cancelOrder = async (e) => {
         e.preventDefault();
             try {
-              let res = await fetch(`http://localhost:3000/app/cancel-order/${item_tracing}`, {
+              let res = await fetch(`https://instaya.herokuapp.com/app/cancel-order/${item_tracing}`, {
                 method: "PUT",
                 headers: { 'Content-Type': 'application/json' },
               });
@@ -188,18 +188,18 @@ function EditForm() {
                                     
                 
                 <Button className='sesion' variant="primary" type="submit" form="editForm">
-                    Editar Orden
+                <div className='buttontext'>Editar Orden</div>
                 </Button>
                 
                 <div className='back'>
                     <Button className='sesion' variant="danger" type="button" onClick={cancelOrder}>
-                        Cancelar Orden
+                    <div className='buttontext'>Cancelar Orden</div>
                     </Button>
                 </div>
     
                 <div className='back'>
                     <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
-                        Volver
+                    <div className='buttontext'>Volver</div>
                     </Button>
                 </div>
                 </Form>

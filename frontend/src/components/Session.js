@@ -72,7 +72,7 @@ function Session() {
             <Form.Control type="password" placeholder="Contraseña" id='password' name='password' value={password} onChange={(e) => setEnteredPassword(e.target.value)}/>
           </Form.Group>
           <Button className='sesion' variant="primary" type="submit">
-            Iniciar sesión
+          <div className='buttontext'>Iniciar sesión</div>
           </Button>
           <div>
           <Form.Text className="text-muted" id='txt-register'>
@@ -81,7 +81,7 @@ function Session() {
           </div>
           <div>
             <Button className='register' variant="secondary" type="button" onClick={handleRoute}>
-              Regístrate
+            <div className='buttontext'>Regístrate</div>
             </Button>
           </div> 
           </Form>

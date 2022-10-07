@@ -42,7 +42,7 @@ function CreateForm() {
             const author = localStorage.getItem("id");
             const authstr = author.replace(/["']/g, "");
             console.log(authstr)
-            let res = await fetch("http://localhost:3000/app/create-order", {
+            let res = await fetch("https://instaya.herokuapp.com/app/create-order", {
               method: "POST",
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -135,11 +135,11 @@ function CreateForm() {
                     <Form.Control type="text" placeholder="" id='finalcity' name='finalcity' value={finalcity} onChange={(e) => setEnteredFinalCity(e.target.value)}/>
                 </Form.Group>
                 <Button className='sesion' variant="primary" type="submit">
-                    Crear Orden
+                <div className='buttontext'>Crear Orden</div>
                 </Button>
                 <div className='back'>
                 <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
-                    Volver
+                <div className='buttontext'>Volver</div>
                 </Button>
             </div>
             </Form>

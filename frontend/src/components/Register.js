@@ -79,11 +79,11 @@ function Register() {
             <Form.Control type="email" placeholder="example@gmail.com" id='email' name='email' value={email} onChange={(e) => setEnteredEmail(e.target.value)}/>
         </Form.Group>
         <Button className='sesion' variant="primary" type="submit">
-            Registrarse
+        <div className="buttontext">Registrarse</div>
         </Button>
         <div className='back'>
             <Button className='sesion' variant="secondary" type="button" onClick={handleRoute}>
-                Volver
+            <div className="buttontext">Volver</div>
             </Button>
           </div>
       </Form>

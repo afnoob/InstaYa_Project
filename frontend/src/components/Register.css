@@ -1,7 +1,7 @@
 .form2 {
     max-width: 30vw;
     margin: 0rem auto;
-    max-height: 150vw;
+    min-height: 30vw;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 6px;
     padding: 1rem;
@@ -38,4 +38,51 @@
 
 .back {
     padding-top: 0.3vw;
+}
+
+@media screen and (max-width: 500px){
+    .buttontext{
+        font-size: 5vw;
+    }
+    .form2 {
+        min-width: 100vw;
+        max-height: 180vw;
+        margin: 0rem auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        border-radius: 6px;
+        padding: 1rem;
+        background-color: white;
+    }
+    
+    .reg {
+        min-width: 100%;
+        min-height: 120vh;
+        padding-top: 3.2rem;
+        padding-bottom: 11.6rem;
+        background: url(../../public/fondo.jpg) no-repeat center bottom;
+        background-size: cover;
+    }
+    
+    .sesion {
+        font-size: 1vw;
+    }
+    
+    .register {
+        font-size: 1vw;
+        padding-top: 0.2vw;
+    }
+    
+    .logo {
+        height: 5vw;
+        margin-left: 11.5vw;
+    }
+    
+    .title h3{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(40, 79, 206);   
+    }
+    
+    .back {
+        padding-top: 0.9vw;
+    }
 }

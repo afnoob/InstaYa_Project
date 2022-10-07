@@ -10,7 +10,7 @@ function Createbutton() {
   };
   return (
     <>
-        <div className='create'><Button variant="outline-primary" onClick={handleRoute}>Crear orden</Button>{' '}</div>
+        <div className='create'><Button variant="outline-primary" onClick={handleRoute}><div className='textbt'>Crear orden</div></Button>{' '}</div>
     </>
   );
 }
