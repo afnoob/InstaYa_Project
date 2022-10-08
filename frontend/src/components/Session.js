@@ -9,14 +9,11 @@ function Session() {
   const [user, setEnteredUser] = useState('');
   const [password, setEnteredPassword] = useState('');
   const history = useHistory();
-  
+
   const handleRoute = () =>{ 
     history.push("/registro");
   };
   
-  const handleRoute2 = () =>{ 
-    history.push("/lista-paquetes");
-  };
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,14 +30,16 @@ function Session() {
         let resJson = await res.json();
         console.log(resJson)
         if (res.status === 200) {
-          localStorage.setItem("token", JSON.stringify(resJson.accestoken));
+          
           let response = await fetch(`http://localhost:3000/app/user-data/${user}`, {
             method: "GET"
           });
           let responsejson = await response.json();
           console.log(resJson);
+          localStorage.setItem("isAuthenticated", "true")
+          localStorage.setItem("token", JSON.stringify(resJson.accestoken));
           localStorage.setItem("id", JSON.stringify(responsejson));
-          handleRoute2();
+          handleRoute2(); 
         } else {
           alert(JSON.stringify(resJson).slice(12, -2));
         }
@@ -52,7 +51,11 @@ function Session() {
     }
   };
 
-  
+  const handleRoute2 = () =>{
+      history.push("/lista-paquetes");
+
+
+  };
   
   return (
         <div className='login'>

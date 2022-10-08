@@ -10,6 +10,7 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import ProtectedRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -17,9 +18,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={UserSession} />
         <Route exact path="/registro" component={UserRegister} />
-        <Route exact path="/lista-paquetes" component={ListPackages} />
-        <Route exact path="/actualizar-orden/:item_tracing" component={UpdateOrder} />
-        <Route exact path="/crear-orden" component={CreateOrder} />
+        <ProtectedRoute  exact path="/lista-paquetes" component={ListPackages} />
+        <ProtectedRoute exact path="/actualizar-orden/:item_tracing" component={UpdateOrder} />
+        <ProtectedRoute exact path="/crear-orden" component={CreateOrder} />
       </Switch>
     </Router>
   );
